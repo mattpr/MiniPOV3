@@ -1,6 +1,6 @@
 #include <avr/io.h>      // this contains all the IO port definitions
 #include <avr/interrupt.h>
-#include <avr/signal.h>
+//#include <avr/signal.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 
@@ -93,7 +93,7 @@ int imagesize = NUM_ELEM(large_image);
 
 // this function is called when timer1 compare matches OCR1A
 uint8_t j = 0;
-SIGNAL( SIG_TIMER1_COMPA ) {
+SIGNAL( TIMER1_COMPA_vect ) {
   if (j >= imagesize) 
     j = 0;
 
